@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development DEPLOY_ENV=development nodemon ./src/server/index.ts",
     "lint": "tslint ./src/**/*.* --config ./tslint.json --project ./tsconfig.json",
-    "lint-fix": "tslint ./src/**/*.* --fix --config ./tslint.json --project ./tsconfig.json"
+    "lint-fix": "tslint ./src/**/*.* --fix --config ./tslint.json --project ./tsconfig.json",
+    "build": "cross-env NODE_ENV=production DEPLOY_ENV=production next build ./src && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production DEPLOY_ENV=production node .next/production-server/server/index.js"
   },
   "husky": {
     "hooks": {

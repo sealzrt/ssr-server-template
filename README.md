@@ -1,6 +1,4 @@
 # SSR Boilterplate
-Server Side Rendering template with Next JS, React JS, Redux and JSS.
-
 ## Description
 
 Here is a boilerplate made with such technologies as:
@@ -12,4 +10,10 @@ Here is a boilerplate made with such technologies as:
 - React JS
 - Redux
 
+## Scripts
 
+- `yarn dev` - run development version.
+- `yarn lint` - check lint errors.
+- `yarn lint-fix` - find lint errors and try to fix them.
+- `yarn build` - build production version.
+- `yarn start` - run production version.
