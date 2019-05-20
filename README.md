@@ -1,4 +1,4 @@
-# SSR Boilterplate
+# SSR Boilerplate
 ## Description
 
 Here is a boilerplate made with such technologies as:
