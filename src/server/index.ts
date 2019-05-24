@@ -19,7 +19,7 @@ app
     server.use((req, res: IResponse, callNextHandler) => {
       const detected = new MobileDetect(req.headers['user-agent']);
       const tablet = detected.tablet();
-      const phone = detected.phone();
+      const phone = detected.phone() || detected.mobile();
 
       // Pass client config and information about device to each request,
       // because client side dont know about it and environment variables.
