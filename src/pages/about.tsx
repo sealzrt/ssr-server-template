@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-import { AboutPageConnected } from '../shared/components/pages/about/connected';
-import { IAboutPageProps } from '../shared/components/pages/about/types';
+import {
+  AboutPageConnected,
+  IAboutPageProps,
+} from '../shared/components/pages/about';
 
 class NextPage extends React.PureComponent<IAboutPageProps> {
   public static getInitialProps(): IAboutPageProps {

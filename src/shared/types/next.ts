@@ -1,5 +1,5 @@
 import { SheetsRegistry, GenerateClassName } from 'jss';
-import { ITheme } from '../shared/theme';
+import { ITheme } from '../theme';
 import { NextAppContext } from 'next/app';
 import { NextContext } from 'next';
 import { IResponse } from './server';
@@ -30,4 +30,5 @@ export interface INextPageContext extends NextContext {
 // For example - ENextPage.About = '/about'.
 export enum ENextPage {
   About = '/about',
+  Main = '/main',
 }

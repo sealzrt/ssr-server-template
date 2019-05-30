@@ -1,4 +1,5 @@
 import { ServerResponse } from 'http';
+import { ENextPage } from './next';
 
 export interface IClientConfig {
 
@@ -19,4 +20,11 @@ export interface IResponse extends ServerResponse {
     config: IClientConfig;
     device: IDeviceInformation;
   };
+}
+
+export interface IServerRoute {
+  name: string;
+  href: string;
+  as: string | ((...params: string[]) => string);
+  page: ENextPage;
 }

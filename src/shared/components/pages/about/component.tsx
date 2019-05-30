@@ -7,6 +7,8 @@ import {
 } from '@material-ui/core';
 import { IAboutPageProps } from './types';
 
+import Head from 'next/head';
+
 interface IProps extends WithStyles<typeof styles>, IAboutPageProps {
 }
 
@@ -43,6 +45,9 @@ class AboutPageComponent extends React.PureComponent<IProps> {
 
     return (
       <div className={classes.wrap}>
+        <Head>
+          <title>Welcome to page About!</title>
+        </Head>
         <div className={classes.title}>Hello buddy!</div>
         <div className={classes.subtitle}>
           Here is an example page we wanted to show you.

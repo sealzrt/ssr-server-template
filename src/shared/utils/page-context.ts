@@ -1,6 +1,7 @@
-import { createTheme } from '../shared/theme';
+import { createTheme } from '../theme';
 import { SheetsRegistry } from 'jss';
-import { createGenerateClassName } from '@material-ui/core';
+import createGenerateClassName
+  from '@material-ui/core/styles/createGenerateClassName';
 import { IPageContext } from '../types';
 
 const theme = createTheme();

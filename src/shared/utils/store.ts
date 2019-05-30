@@ -1,4 +1,4 @@
-import { createReduxStore, IReduxState } from '../shared/redux';
+import { createReduxStore, IReduxState } from '../redux';
 import { Store } from 'redux';
 
 const isServer = typeof window === 'undefined';

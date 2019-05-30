@@ -2,9 +2,9 @@ import * as next from 'next';
 import * as express from 'express';
 import * as MobileDetect from 'mobile-detect';
 import { serverConfig, clientConfig } from './config';
-import { nextRoutes } from './routes';
-import { IResponse } from '../types';
-import { log } from './logger';
+import { nextRoutes } from '../shared/routes';
+import { IResponse } from '../shared/types';
+import { log } from './utils/logger';
 
 const app = next(extractServerOptions(serverConfig.env));
 const handler = nextRoutes.getRequestHandler(app);

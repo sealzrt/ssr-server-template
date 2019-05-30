@@ -4,16 +4,18 @@ import { Store } from 'redux';
 import { IReduxState } from '../shared/redux';
 import { IDeviceReducerState } from '../shared/redux/device';
 import { IConfigReducerState } from '../shared/redux/config';
-import { INextPageContext, INextAppContext } from '../types';
+import { INextPageContext, INextAppContext } from '../shared/types';
 
-import { getOrCreateStore } from '../utils/store';
-
-import { getPageContext } from '../utils';
+import { getPageContext } from '../shared/utils/page-context';
+import { getOrCreateStore } from '../shared/utils/store';
 
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import JssProvider from 'react-jss/lib/JssProvider';
+
+import Router from 'next/router';
+import { TasksActions } from '../shared/redux/tasks/actions';
 
 interface IProps {
   config: IConfigReducerState;
@@ -23,12 +25,14 @@ interface IProps {
 
 export class ThemedApp extends App<IProps> {
   public static async getInitialProps(appContext: INextAppContext) {
-    const { Component: Page, ctx, router } = appContext;
+    const { Component: Page, ctx } = appContext;
 
     const applicationState: IReduxState = {
-      routing: { ...router },
       config: ctx.res ? ctx.res.locals.config : ({} as IConfigReducerState),
       device: ctx.res ? ctx.res.locals.device : ({} as IDeviceReducerState),
+      tasks: {
+        list: [],
+      },
     };
     const reduxStore = getOrCreateStore(applicationState);
     const pageProps = Page.getInitialProps
@@ -49,6 +53,25 @@ export class ThemedApp extends App<IProps> {
   public constructor(props) {
     super(props);
     this.reduxStore = getOrCreateStore(props.initialReduxState);
+
+    let lastRedirectTask;
+
+    Router.events.on('routeChangeStart', (url: string) => {
+      if (url !== Router.router.asPath) {
+        lastRedirectTask = Symbol();
+
+        const redirectAction = TasksActions.RUN_TASK({
+          key: lastRedirectTask,
+          title: 'Загружаем новую страницу..',
+        });
+
+        this.reduxStore.dispatch(redirectAction);
+      }
+    });
+
+    Router.events.on('routeChangeComplete', () => {
+      this.reduxStore.dispatch(TasksActions.STOP_TASK(lastRedirectTask));
+    });
   }
 
   public componentDidMount(): void {

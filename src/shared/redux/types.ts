@@ -1,14 +1,9 @@
 import { IDeviceReducerState } from './device';
 import { IConfigReducerState } from './config';
-import { IRoutingReducerState } from './routing';
+import { ITasksReducer } from './tasks';
 
 export interface IReduxState {
+  tasks: ITasksReducer;
   device: IDeviceReducerState;
   config: IConfigReducerState;
-  routing: IRoutingReducerState;
-}
-
-export interface IReduxAction<T = string, P = any> {
-  type: T;
-  payload?: P;
 }

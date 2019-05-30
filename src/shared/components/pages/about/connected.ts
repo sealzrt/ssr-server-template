@@ -1,18 +1,10 @@
 import { AboutPage } from './component';
-import { connectAdvanced } from 'react-redux';
+import { connect } from 'react-redux';
 import { IReduxState } from '../../../redux';
-import { IAboutPageOwnProps, IAboutPageProps } from './types';
+import { IAboutPageConnectedProps } from './types';
 
-function f() {
-  return (
-    _state: IReduxState,
-    ownProps: IAboutPageOwnProps,
-  ): IAboutPageProps => {
-    return {
-      ...ownProps,
-      // Other props need to be connected.
-    };
-  };
+function mapStateToProps(state: IReduxState): IAboutPageConnectedProps {
+  return {};
 }
 
-export const AboutPageConnected = connectAdvanced(f)(AboutPage);
+export const AboutPageConnected = connect(mapStateToProps)(AboutPage);

@@ -25,6 +25,10 @@ If you just cloned this repository, dont forget to install dependencies via
 - Redux
 - Express JS
 
+## Features
+- Mobile detection
+- SEO-ready application
+
 ## Scripts
 
 - `yarn dev` - run development version.
@@ -67,7 +71,7 @@ import Head from 'next/head';
 ```
 
 During initial page rendering, Next JS will automatically take your `<Head />` 
-and pass it to DOM head. 
+and pass it to `document.head``. 
 
 ### Set environment variables
 Current project uses both `dotenv` and `cross-env` npm packages. So, `cross-env`

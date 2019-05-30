@@ -6,7 +6,7 @@ import Document, {
   NextScript,
 } from 'next/document';
 import flush from 'styled-jsx/server';
-import { IPageContext } from '../types';
+import { IPageContext } from '../shared/types';
 
 export default class SSRThemedDocument extends Document {
   public static async getInitialProps(context: NextDocumentContext) {

@@ -1,5 +1,5 @@
-export interface IAboutPageOwnProps {
+export interface IAboutPageConnectedProps {
 }
 
-export interface IAboutPageProps extends IAboutPageOwnProps {
+export interface IAboutPageProps extends IAboutPageConnectedProps {
 }
