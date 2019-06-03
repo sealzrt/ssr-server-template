@@ -1,9 +1,9 @@
 import { IDeviceReducerState } from './device';
 import { IConfigReducerState } from './config';
-import { ITasksReducer } from './tasks';
+import { IRouterReducer } from './routing';
 
 export interface IReduxState {
-  tasks: ITasksReducer;
+  routing: IRouterReducer;
   device: IDeviceReducerState;
   config: IConfigReducerState;
 }

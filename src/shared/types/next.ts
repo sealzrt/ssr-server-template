@@ -4,6 +4,7 @@ import { NextAppContext } from 'next/app';
 import { NextContext } from 'next';
 import { IResponse } from './server';
 import { Store } from 'redux';
+import { IReduxState } from '../redux';
 
 export interface IPageContext {
   theme: ITheme;
@@ -21,7 +22,7 @@ export interface INextAppContext extends NextAppContext {
 }
 
 export interface INextPageContext extends NextContext {
-  store: Store;
+  store: Store<IReduxState>;
 }
 
 // List of pages in your project. Here must be the list of Next pages,
@@ -29,6 +30,5 @@ export interface INextPageContext extends NextContext {
 // about.tsx (./src/pages/about.tsx), it is required to write "/about".
 // For example - ENextPage.About = '/about'.
 export enum ENextPage {
-  About = '/about',
-  Main = '/main',
+  Home = '/home',
 }

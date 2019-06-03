@@ -7,16 +7,10 @@ import Routes from 'next-routes';
 
 export const routes: IServerRoute[] = [
   {
-    name: 'about',
-    href: '/about',
-    as: '/about',
-    page: ENextPage.About,
-  },
-  {
-    name: 'main',
+    name: 'home',
     href: '/',
     as: '/',
-    page: ENextPage.Main,
+    page: ENextPage.Home,
   },
 ];
 

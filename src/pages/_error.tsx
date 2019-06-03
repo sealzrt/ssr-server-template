@@ -1,11 +1,3 @@
-import * as React from 'react';
+import { ErrorPage } from '../shared/components/pages/error';
 
-export default class extends React.PureComponent {
-  public static getInitialProps() {
-    return {};
-  }
-
-  public render() {
-    return 'Woops! An error occurred :(';
-  }
-}
+export default ErrorPage;

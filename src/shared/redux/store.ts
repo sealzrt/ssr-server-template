@@ -9,10 +9,10 @@ import { IReduxState } from './types';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { configReducer } from './config';
 import { deviceReducer } from './device';
-import { tasksReducer } from './tasks';
+import { routingReducer } from './routing';
 
 const reducers = combineReducers<IReduxState>({
-  tasks: tasksReducer,
+  routing: routingReducer,
   config: configReducer,
   device: deviceReducer,
 });
